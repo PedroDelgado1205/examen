@@ -1,0 +1,14 @@
+{% extends "libros/base.html" %}
+
+{% block title %}Lista de Libros{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Lista de Libros</h1>
+    <div class="list-group">
+        {% for libro in libros %}
+            <a href="{% url 'detalle_libro' pk=libro.pk %}" class="list-group-item list-group-item-action">
+                {{ libro.titulo }}
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}

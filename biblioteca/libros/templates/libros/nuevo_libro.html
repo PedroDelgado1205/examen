@@ -1,0 +1,32 @@
+{% extends "libros/base.html" %}
+
+{% block title %}Agregar Nuevo Libro{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Agregar Nuevo Libro</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="id_titulo" class="form-label">Título</label>
+            <input type="text" class="form-control" id="id_titulo" name="titulo" required>
+        </div>
+        <div class="mb-3">
+            <label for="id_autor" class="form-label">Autor</label>
+            <input type="text" class="form-control" id="id_autor" name="autor" required>
+        </div>
+        <div class="mb-3">
+            <label for="id_fecha_publicacion" class="form-label">Fecha de Publicación</label>
+            <input type="date" class="form-control" id="id_fecha_publicacion" name="fecha_publicacion" required>
+        </div>
+        <div class="mb-3">
+            <label for="id_isbn" class="form-label">ISBN</label>
+            <input type="text" class="form-control" id="id_isbn" name="isbn" required>
+        </div>
+        <div class="mb-3">
+            <label for="id_ruta_img" class="form-label">Imagen</label>
+            <input type="file" class="form-control" id="id_ruta_img" name="ruta_img" accept="image/*">
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="{% url 'lista_libros' %}" class="btn btn-danger"> Cancelar</a>
+    </form>
+{% endblock %}

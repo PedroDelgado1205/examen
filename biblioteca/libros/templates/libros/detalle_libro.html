@@ -1,0 +1,16 @@
+{% extends "libros/base.html" %}
+from.models import libroom.models import libro
+{% block title %}Detalle del Libro{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">{{ libro.titulo }}</h1>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Autor: {{ libro.autor }}</h5>
+            <p class="card-text">Fecha de Publicación: {{ libro.fecha_publicacion }}</p>
+            <p class="card-text">ISBN: {{ libro.isbn }}</p>
+            <img src="/media/{{ libro.ruta_img }}" width="150" alt="Portada del libro" class="img-fluid">
+        </div>
+    </div>
+    <a href="{% url 'lista_libros' %}" class="btn btn-primary mt-4">Volver a la lista de libros</a>
+{% endblock %}
